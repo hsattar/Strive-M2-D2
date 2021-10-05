@@ -25,11 +25,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
+              <a class="nav-link" href="#about-me">Me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Albums</a>
+              <a class="nav-link" href="#fav-albums">Albums</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#hall-of-shame">Hall Of Shame</a>
+              </li>
           </ul>
           
         </div>
@@ -39,7 +42,7 @@
 
 <div class="container">
     
-    <div class="row my-4">
+    <div id="about-me" class="row my-4">
         <div class="col-12 text-center mb-2">
             <h2>About Me</h2>
         </div>
@@ -62,7 +65,7 @@
 
     <div class="row d-flex justify-content-center">
 
-        <div class="col-12 text-center mb-2">
+        <div id="fav-albums" class="col-12 text-center my-2">
             <h2>Favourite Albums</h2>
         </div>
 
@@ -151,8 +154,51 @@
         </div>
 
 
+    </div>
+
+
+    <div id="hall-of-shame" class="row">
+
+        <div class="col-12 text-center my-2">
+            <h2>Hall Of Shame</h2>
+        </div>
+
+
+        <table class="table table-dark border">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Album</th>
+                <th scope="col">Artist</th>
+                <th scope="col">Genre</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+
 
     </div>
+
+
 
 </div>
 
