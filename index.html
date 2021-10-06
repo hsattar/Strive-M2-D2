@@ -76,24 +76,45 @@
 <!-- ALBUM MODAL CONTENT -->
 
     
-<div class="modal fade text-dark" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Taylor Swift - 1989</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <div class="modal-content bg-dark">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Taylor Swift - 1989</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="text-danger">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row border-bottom pb-2">
+                    <div class="col-2">#</div>
+                    <div class="col-7">Song</div>
+                    <div class="col-3">Duration</div>
+                </div>       
+                <div class="row py-2">
+                    <div class="col-2">1</div>
+                    <div class="col-7">Blank Space</div>
+                    <div class="col-3">3:54</div>
+                </div>          
+                <div class="row py-2">
+                    <div class="col-2">2</div>
+                    <div class="col-7">Wildest Dreams</div>
+                    <div class="col-3">3:54</div>
+                </div>          
+                <div class="row py-2">
+                    <div class="col-2">3</div>
+                    <div class="col-7">Style</div>
+                    <div class="col-3">3:54</div>
+                </div>          
+            </div>
+
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
         </div>
-        <div class="modal-body">
-        <p>Blank Space</p>
-        <p>Wildest Dream</p>
-        <p>Style</p>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-    </div>
     </div>
 </div>
 
