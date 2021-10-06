@@ -2,6 +2,7 @@ let favAlbums = [
     {
         img: 'images/1989.jfif',
         album: '1989',
+        albumId: 'ts1989',
         artist: 'Taylor Swift',
         genre: 'POP',
         length: '13 Songs',
@@ -23,6 +24,7 @@ let favAlbums = [
     {
         img: 'images/Dangerous Woman.jfif',
         album: 'Dangerous Woman',
+        albumId: 'dangerous-woman',
         artist: 'Ariana Grande',
         genre: 'POP',
         length: '15 Songs',
@@ -44,6 +46,7 @@ let favAlbums = [
     {
         img: 'images/Divide.jfif',
         album: 'Divide',
+        albumId: 'divide',
         artist: 'Ed Sheeran',
         genre: 'POP',
         length: '16 Songs',
@@ -65,6 +68,7 @@ let favAlbums = [
     {
         img: 'images/Blue.jfif',
         album: 'Blue',
+        albumId: 'blue',
         artist: 'Jonas Blue',
         genre: 'Dance Music',
         length: '15 Songs',
@@ -86,6 +90,7 @@ let favAlbums = [
     {
         img: 'images/AvaMax.jfif',
         album: 'Heaven & Hell',
+        albumId: 'heaven-and-hell',
         artist: 'Ava Max',
         genre: 'POP',
         length: '15 Songs',
@@ -107,6 +112,7 @@ let favAlbums = [
     {
         img: 'images/Calvin.jfif',
         album: '18 Months',
+        albumId: 'ch-18-months',
         artist: 'Calvin Harris',
         genre: 'POP',
         length: '15 Songs',
@@ -130,10 +136,6 @@ let favAlbums = [
 let favAlbumsSection = document.getElementById('fav-albums')
 let albumModalSection = document.getElementById('album-modal-section')
 
-// for (let i = 0; i < favAlbums[0]['songs']; i++) {
-//     console.log('test')
-// }
-
 for (album of favAlbums) {
     favAlbumsSection.innerHTML += `
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
@@ -144,8 +146,52 @@ for (album of favAlbums) {
                 <h6 class="card-subtitle mb-2 text-muted">${album.artist}</h6>
                 <p class="card-text">${album.genre}</p
                 <p class="card-text">${album.length}</p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">See Songs</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#${album.albumId}">See Songs</button>
             </div>
         </div>
     </div>`
+
+    console.log(favAlbumsSection)
+
+    albumModalSection.innerHTML += `
+    <div class="modal fade" id="${album.albumId}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">${album.artist} - ${album.album}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-danger">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row border-bottom pb-2">
+                        <div class="col-2">#</div>
+                        <div class="col-7">Song</div>
+                        <div class="col-3">Duration</div>
+                    </div>       
+                    <div class="row py-2">
+                        <div class="col-2">1</div>
+                        <div class="col-7">Blank Space</div>
+                        <div class="col-3">3:54</div>
+                    </div>          
+                    <div class="row py-2">
+                        <div class="col-2">2</div>
+                        <div class="col-7">Wildest Dreams</div>
+                        <div class="col-3">3:54</div>
+                    </div>                    
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>`
+
+    console.log(album.album)
 }
+
+console.log(albumModalSection)
