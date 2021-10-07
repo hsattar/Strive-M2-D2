@@ -151,8 +151,6 @@ for (album of favAlbums) {
         </div>
     </div>`
 
-    console.log(favAlbumsSection)
-
     albumModalSection.innerHTML += `
     <div class="modal fade" id="${album.albumId}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -165,22 +163,12 @@ for (album of favAlbums) {
                     </button>
                 </div>
 
-                <div class="modal-body">
-                    <div class="row border-bottom pb-2">
+                <div id="${album.albumId}songs" class="modal-body">
+                    <div class="row border-bottom pb-2 mb-1">
                         <div class="col-2">#</div>
                         <div class="col-7">Song</div>
                         <div class="col-3">Duration</div>
-                    </div>       
-                    <div class="row py-2">
-                        <div class="col-2">1</div>
-                        <div class="col-7">Blank Space</div>
-                        <div class="col-3">3:54</div>
-                    </div>          
-                    <div class="row py-2">
-                        <div class="col-2">2</div>
-                        <div class="col-7">Wildest Dreams</div>
-                        <div class="col-3">3:54</div>
-                    </div>                    
+                    </div>                          
                 </div>
 
                 <div class="modal-footer">
@@ -191,7 +179,14 @@ for (album of favAlbums) {
         </div>
     </div>`
 
-    console.log(album.album)
+    let listOfSongs = document.getElementById(`${album.albumId}songs`)
+    for (let i = 0; i < album.songs.length; i++) {
+        let songItem = document.createElement('div')
+        songItem.className = 'row py-2'
+        songItem.innerHTML = `
+        <div class="col-2">${i + 1}</div>
+        <div class="col-7">${album.songs[i].name}</div>
+        <div class="col-3">${album.songs[i].duration}</div>`
+        listOfSongs.appendChild(songItem)
+    }
 }
-
-console.log(albumModalSection)
