@@ -214,6 +214,40 @@ for (album of favAlbums) {
 
 let songRow = document.querySelectorAll('.song-row')
 
+const removePlayingSong = () => {
+    let songPlaying = document.querySelector('.playing')
+    if (songPlaying !== null) {
+        songPlaying.remove()
+    }
+}
+
+const songPlaying = () => {
+    removePlayingSong()
+    let modalBody = document.querySelectorAll('.modal-body')
+    let selectedSong = document.querySelector('.text-success div:nth-child(2)')
+    let currentlyPlaying = document.createElement('div')
+    currentlyPlaying.className = 'col-12 text-center border-top mt-4 pt-2 playing'
+    currentlyPlaying.innerText = selectedSong.innerText
+    for (let j = 0; j < modalBody.length; j++) {
+        // console.log(j)
+        // console.log(modalBody[j])
+        modalBody[2].appendChild(currentlyPlaying)
+        // console.log(modalBody[j])
+    }
+    // for (let modal of modalBody) {
+    //     console.log(modal)
+    //     modal.appendChild(currentlyPlaying)
+    //     console.log(modal)
+    // }
+}
+
+// const showSongProgressBar = () => {
+    // <div class="progress">
+    //   <div class="progress-bar bg-success" role="progressbar" style="With: 50%"></div>
+    // </div>
+    // USE VARIABLE TO UPDATE WIDTH % EVERY SECOND
+// }
+
 const removePreviouslySelectedSong = () => {
     for (let song of songRow) {
         for (let classList of song.classList) {
@@ -228,6 +262,7 @@ for (let song of songRow) {
     song.addEventListener('click', () => {
         removePreviouslySelectedSong()
         song.classList.add('text-success')
+        songPlaying()
     })
 }
 
