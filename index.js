@@ -133,6 +133,21 @@ let favAlbums = [
     },
 ]
 
+let albumGallery = [
+"images/Phoenix.jfif",
+"images/Mabel.jfif",
+"images/Divide.jfif",
+"images/Blue.jfif",
+"images/Red.jfif",
+"images/Dangerous Woman.jfif",
+"images/OneD.jfif",
+"images/AvaMax.jfif",
+"images/Calvin.jfif",
+"images/Salute.jfif",
+"images/One Love.jfif",
+"images/So Good.jfif"
+]
+
 let favAlbumsSection = document.getElementById('fav-albums')
 let albumModalSection = document.getElementById('album-modal-section')
 
@@ -189,4 +204,13 @@ for (album of favAlbums) {
         <div class="col-3">${album.songs[i].duration}</div>`
         listOfSongs.appendChild(songItem)
     }
+}
+
+let albumGallerySection = document.getElementById('album-gallery')
+
+for (let coverSrc of albumGallery) {
+    let albumCover = document.createElement('div')
+    albumCover.className = 'col-4 col-sm-3 col-lg-2'
+    albumCover.innerHTML = `<img src="${coverSrc}">`
+    albumGallerySection.appendChild(albumCover)
 }
