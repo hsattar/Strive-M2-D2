@@ -145,7 +145,13 @@ let albumGallery = [
 "images/Calvin.jfif",
 "images/Salute.jfif",
 "images/One Love.jfif",
-"images/So Good.jfif"
+"images/So Good.jfif",
+'images/thescript.jfif',
+'images/avicii.jfif',
+'images/jasonderulo.jfif',
+'images/samsmith.jfif',
+'images/charlieputh.jfif',
+'images/drake.jfif',
 ]
 
 let favAlbumsSection = document.getElementById('fav-albums')
@@ -197,7 +203,7 @@ for (album of favAlbums) {
     let listOfSongs = document.getElementById(`${album.albumId}songs`)
     for (let i = 0; i < album.songs.length; i++) {
         let songItem = document.createElement('div')
-        songItem.className = 'row py-2'
+        songItem.className = 'row py-2 song-row'
         songItem.innerHTML = `
         <div class="col-2">${i + 1}</div>
         <div class="col-7">${album.songs[i].name}</div>
@@ -205,6 +211,26 @@ for (album of favAlbums) {
         listOfSongs.appendChild(songItem)
     }
 }
+
+let songRow = document.querySelectorAll('.song-row')
+
+const removePreviouslySelectedSong = () => {
+    for (let song of songRow) {
+        for (let classList of song.classList) {
+            if (classList === 'text-success') {
+                song.classList.remove('text-success')
+            }
+        }
+    }
+}
+
+for (let song of songRow) {
+    song.addEventListener('click', () => {
+        removePreviouslySelectedSong()
+        song.classList.add('text-success')
+    })
+}
+
 
 let albumGallerySection = document.getElementById('album-gallery')
 
