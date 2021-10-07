@@ -239,14 +239,30 @@ const songPlaying = () => {
     //     modal.appendChild(currentlyPlaying)
     //     console.log(modal)
     // }
+    let songProgressBar = document.createElement('div')
+    songProgressBar.className = 'progress mt-2'
+    let currentTime = 0
+    
+    const updateProgressBarDisplay = () => {
+        currentTime++
+        console.log(currentTime)
+        songProgressBar.innerHTML = `
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="Width: ${currentTime}%"></div>`
+        if (currentTime === 5) {
+            resetPlayer()
+        }
+    }
+    
+    let updateProgress = setInterval(updateProgressBarDisplay, 1000)
+
+    const resetPlayer = () => {
+        clearInterval(updateProgress)
+    }
+
+    currentlyPlaying.appendChild(songProgressBar)
+    // USE VARIABLE TO UPDATE WIDTH % EVERY SECOND
 }
 
-// const showSongProgressBar = () => {
-    // <div class="progress">
-    //   <div class="progress-bar bg-success" role="progressbar" style="With: 50%"></div>
-    // </div>
-    // USE VARIABLE TO UPDATE WIDTH % EVERY SECOND
-// }
 
 const removePreviouslySelectedSong = () => {
     for (let song of songRow) {
