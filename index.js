@@ -53,11 +53,11 @@ let favAlbums = [
         songs: [
             {
                 name: 'Perfect',
-                duration: '4:23'
+                duration: '4:23',
             },
             {
                 name: 'Shape Of You',
-                duration: '3:53'
+                duration: '3:53',
             },
             {
                 name: 'Castle On The Hill',
@@ -221,10 +221,27 @@ const removePlayingSong = () => {
     }
 }
 
+const findSongLength = () => {
+    let selectedSongLength = document.querySelector('.text-success div:nth-child(3)')
+    selectedSongLength = selectedSongLength.innerText
+    let songTime = selectedSongLength.split(':')
+    let songTimeNumber = songTime.map(i => Number(i))
+    let convertSecondsToDecimal = songTimeNumber[1] / 60
+    convertSecondsToDecimal = convertSecondsToDecimal.toFixed(2)
+    songTimeNumber[1] = convertSecondsToDecimal
+    songTimeNumber = songTimeNumber.join('')
+    songTimeNumber = songTimeNumber.split('0')
+    songTimeNumber = songTimeNumber.join('')
+    songTimeNumber = Number(songTimeNumber)
+    songTimeSeconds = Math.round(songTimeNumber * 60)
+}
+
 const songPlaying = () => {
     removePlayingSong()
     let modalBody = document.querySelectorAll('.modal-body')
     let selectedSong = document.querySelector('.text-success div:nth-child(2)')
+    findSongLength()
+    let progressBarIncrements = Number((100 / songTimeSeconds).toFixed(2))
     let currentlyPlaying = document.createElement('div')
     currentlyPlaying.className = 'col-12 text-center border-top mt-4 pt-2 playing'
     currentlyPlaying.innerText = selectedSong.innerText
@@ -244,11 +261,11 @@ const songPlaying = () => {
     let currentTime = 0
     
     const updateProgressBarDisplay = () => {
-        currentTime++
+        currentTime += progressBarIncrements
         console.log(currentTime)
         songProgressBar.innerHTML = `
         <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="Width: ${currentTime}%"></div>`
-        if (currentTime === 5) {
+        if (currentTime === 100) {
             resetPlayer()
         }
     }
